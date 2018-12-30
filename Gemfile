@@ -36,6 +36,9 @@ gem 'jbuilder', '~> 2.5'
 # Use Passwordless for User Sessions
 gem 'passwordless'
 
+# Use Oauth for login sessions as well
+gem 'omniauth-google-oauth2'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
