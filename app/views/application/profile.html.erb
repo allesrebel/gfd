@@ -1,1 +1,8 @@
-<h1>Profile Page</h1>
+<%= render 'shared/flash-handler' %>
+
+<h1>
+  <%= current_user.email %>
+</h1>
+<p>
+  <%= link_to 'Sign out?', auth.sign_out_path %> 
+</p>

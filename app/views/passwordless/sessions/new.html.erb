@@ -1,5 +1,16 @@
+<% # Handle case if user tries to log in again, when already signed in %>
+<% if current_user %>
+  <meta HTTP-EQUIV="REFRESH" content="0; url=<%= url_for profile_path %>">
+<% end %>
+
+<% if params[:success] %>
+  <div class="flash-messages">
+  <%= "Please authenticate to access account" %>
+  </div>
+<% end %>
+
 <%= form_for @session, url: send(Passwordless.mounted_as).sign_in_path do |f| %>
   <% email_field_name = :"passwordless[#{@email_field}]" %>
   <%= text_field_tag email_field_name, params.fetch(:email, nil) %>
-  <%= f.submit 'Send Authentication Email' %>
-<% end %>
+  <%= f.submit 'Send Sign In Email' %>
+<% end %> 

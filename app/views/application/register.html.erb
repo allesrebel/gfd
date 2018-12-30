@@ -1,6 +1,10 @@
 <% if params[:error] %>
-<h1> Please check the email field, and verify a valid email is given </h1>
-<h2> If the email is already registered, try to <%= link_to 'Sign In', auth.sign_in_path(passwordless: {email: params[:email]}) %> </h2>
+  <h1> 
+    Ensure a valid email must be used
+  </h1>
+  <p> 
+    If the email is already registered, try to <%= link_to 'Sign In', auth.sign_in_path(passwordless: {email: params[:email]}) %> 
+  </p>
 <% end %>
 
 <%= form_with model: @user do |form| %>
