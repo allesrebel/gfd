@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
 	end
 
   def register
-    redirect_to '/profile', flash: {notice: 'You are already signed in!'} if current_user
+    redirect_to profile_path, flash: {notice: 'You are already signed in!'} if current_user
   end
 
   private
@@ -18,6 +18,6 @@ class ApplicationController < ActionController::Base
 
   def require_user!
     return if current_user
-    redirect_to '/sign_in', flash: {error: 'Please Sign In'}
+    redirect_to auth.sign_in_path, flash: {error: 'Please Sign In'}
   end
 end

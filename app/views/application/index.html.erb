@@ -2,7 +2,8 @@
 <p> Welcome <%= current_user.email %> </p>
 <%= link_to 'Sign Out', auth.sign_out_path %> 
 <% else %>
-<%= link_to 'Sign In', auth.sign_in_path %> 
+<%= link_to 'Sign In', auth.sign_in_path %>
+<%= link_to 'Register', register_path %> 
 <% end %>
 
 

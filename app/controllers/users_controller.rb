@@ -10,9 +10,9 @@ class UsersController < ApplicationController
     @user = User.new user_params
     
     if @user.save
-      redirect_to '/sign_in', flash: {notice: 'Registered user, welcome!'}
+      redirect_to auth.sign_in_path, flash: {notice: 'Registered user, welcome!'}
     else  # Failed to save USER
-      redirect_to '/sign_in', flash: {notice: 'User exists, please authenticate!'}
+      redirect_to auth.sign_in_path, flash: {notice: 'User exists, please authenticate!'}
     end
   end
 
