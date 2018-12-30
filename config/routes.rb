@@ -13,6 +13,6 @@ Rails.application.routes.draw do
   match '/register',  to: 'users#create',     via: 'post'
 
   # Profile page for user
-  match '/profile', to: 'users#profile', via: 'get'
+  match '/profile', to: 'application#profile', via: 'get'
 
 end

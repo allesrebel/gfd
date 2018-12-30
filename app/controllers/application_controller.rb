@@ -1,11 +1,18 @@
 class ApplicationController < ActionController::Base
 	include Passwordless::ControllerHelpers
 
-  helper_method :current_user
+  helper_method :current_user # Expose methods to 'views'
 
+  # Home page, GET root
   def index
 	end
 
+  # Profile page, GET
+  def profile
+    require_user!
+  end
+
+  # Register a profile via GET
   def register
     redirect_to profile_path, flash: {notice: 'You are already signed in!'} if current_user
   end
