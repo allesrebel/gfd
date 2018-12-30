@@ -1,8 +1,11 @@
-Register here!!!
+<% if params[:error] %>
+<h1> Please check the email field, and verify a valid email is given </h1>
+<h2> If the email is already registered, try to <%= link_to 'Sign In', auth.sign_in_path(passwordless: {email: params[:email]}) %> </h2>
+<% end %>
 
 <%= form_with model: @user do |form| %>
   <%= form.label :email %>
-  <%= form.text_field :email %>
+  <%= form.text_field :email, value: params[:email] %>
 
   <%= form.submit 'Register' %>
 <% end %>

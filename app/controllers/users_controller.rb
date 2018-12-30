@@ -8,11 +8,11 @@ class UsersController < ApplicationController
   # For POST operations
   def create
     @user = User.new user_params
-    
+
     if @user.save
-      redirect_to auth.sign_in_path, flash: {notice: 'Registered user, welcome!'}
-    else  # Failed to save USER
-      redirect_to auth.sign_in_path, flash: {notice: 'User exists, please authenticate!'}
+      redirect_to auth.sign_in_path( passwordless_id: params(:email), flash: {notice: 'Please sign in to access content!'} )
+    else  # Failed to save USER, error
+      redirect_to register_path(email: params[:email], error: @user.errors.any?)
     end
   end
 

@@ -9,8 +9,8 @@ Rails.application.routes.draw do
     # <%= auth.sign_in_path %> # => /sign_in
 
   # Registration page + creating new user
-  match '/register',  to: 'application#register',  via: 'get'
-  match '/register',  to: 'users#create',        via: 'post'
+  match '/register',  to: 'application#register',   via: 'get'
+  match '/register',  to: 'users#create',     via: 'post'
 
   # Profile page for user
   match '/profile', to: 'users#profile', via: 'get'
