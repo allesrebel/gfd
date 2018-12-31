@@ -38,8 +38,13 @@ class ApplicationController < ActionController::Base
     # Check which kind of hash it is
     if hash[:provider] == "google_oauth2"
       @user = User.new email: hash[:extra][:id_info][:email] if hash[:extra][:id_info][:email_verified]
-      @user = User.find_by_email @user.email unless @user.save
       sign_in @user
+    elsif hash[:provider] == "facebook"
+      @user = User.new email: hash[:extra][:raw_info][:email]
     end
+
+    # Attempt to save user record + sign in
+    @user = User.find_by_email @user.email unless @user.save
+    sign_in @user
   end
 end

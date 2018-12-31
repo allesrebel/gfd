@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     # <%= users.sign_in_path %> # => /users/sign_in
   passwordless_for :users, at: '/', as: :auth
     # <%= auth.sign_in_path %> # => /sign_in
-  # For Google's OAUTH2 log in
+  # For OAuth2 Callbacks
   match 'auth/:provider/callback', to: 'application#oauth2', via: 'get'
   match 'auth/failure', to: 'application#index', via: 'get'
 
