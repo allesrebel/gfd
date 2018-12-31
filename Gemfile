@@ -38,6 +38,7 @@ gem 'passwordless'
 
 # Use Oauth for login sessions as well
 gem 'omniauth-google-oauth2'
+gem 'omniauth-facebook'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
