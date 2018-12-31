@@ -17,18 +17,20 @@
     <li>
       <%= link_to 'Sign in with Facebook', '/auth/facebook_oauth2' %>
     </li>
+    <li>
+      <div class='sign-in-email'>
+        <div>
+          <p>
+            Sign in with Email
+          </p>
+        </div>
+        <%= form_for @session, url: send(Passwordless.mounted_as).sign_in_path do |f| %>
+          <% email_field_name = :"passwordless[#{@email_field}]" %>
+          <%= text_field_tag email_field_name, params.fetch(:email, nil) %>
+          <%= f.submit 'Sign in with Email' %>
+        <% end %>
+      </div>
+    </li>
   </ul>
 </div>
 
-<div class='sign-in-email'>
-  <div>
-    <p>
-      Sign in with Email
-    </p>
-  </div>
-  <%= form_for @session, url: send(Passwordless.mounted_as).sign_in_path do |f| %>
-    <% email_field_name = :"passwordless[#{@email_field}]" %>
-    <%= text_field_tag email_field_name, params.fetch(:email, nil) %>
-    <%= f.submit 'Send Sign In Email' %>
-  <% end %>
-</div>

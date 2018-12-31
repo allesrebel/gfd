@@ -1,5 +1,12 @@
-<% # Wait 5 Seconds before redirect %>
+<% # Wait 10 Seconds before redirect %>
 <meta HTTP-EQUIV="REFRESH" content="5; url='/'">
 
 <p> Please check your email to complete signing in. </p>
-<p> Redirecting to back in 5 seconds... </p>
+<p> Redirecting in 10 seconds... </p>
+
+
+<div class='create-account'>
+  <p>
+    No email? Try <%= link_to 'Register Email', '/register' %> 
+  </p>
+</div>
